@@ -10,10 +10,11 @@ public class ClienteResponseMapper {
 
     public static ClienteResponse fromEntityToResponse(Cliente cliente){
         return ClienteResponse.builder()
-                .id(cliente.getIdCliente())
+                .idCliente(cliente.getIdCliente())
                 .nome(cliente.getNome())
                 .numeroConta(cliente.getNumeroConta())
                 .saldo(cliente.getSaldo())
+                .transferencias(cliente.getTransferencias())
                 .build();
     }
 }

@@ -13,7 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -36,22 +35,12 @@ public class ClienteService {
         }
     }
 
-    public Optional<ClienteResponse> findClienteById(long id) {
-        Optional<Cliente> cliente = repository.findClienteByIdCliente(id);
-
-        if (cliente.isPresent()) {
-            Cliente cliente1 = cliente.get();
-            cliente1.getIdCliente();
-            cliente1.getNome();
-            cliente1.getNumeroConta();
-            cliente1.getSaldo();
-
-            return Optional.ofNullable(ClienteResponseMapper.fromEntityToResponse(cliente1));
-        }
-        throw new NoSuchElementException("There is no client with this id.");
-    }
-
     public Page<ClienteResponse> findAllClientes(Pageable pageable) {
         return repository.findAll(pageable).map(ClienteResponseMapper::fromEntityToResponse);
+    }
+
+    public Optional<ClienteResponse> findClientePorNumeroConta(Long numeroConta) {
+        return Optional.ofNullable(ClienteResponseMapper.
+                fromEntityToResponse(repository.findClienteByNumeroConta(numeroConta)));
     }
 }

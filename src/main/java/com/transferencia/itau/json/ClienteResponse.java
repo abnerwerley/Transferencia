@@ -1,6 +1,9 @@
 package com.transferencia.itau.json;
 
+import com.transferencia.itau.entities.Transferencia;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @Getter
@@ -10,8 +13,9 @@ import lombok.*;
 @Builder
 public class ClienteResponse {
 
-    private Long id;
+    private Long idCliente;
     private String nome;
     private double numeroConta;
     private Long saldo;
+    private List<Transferencia> transferencias;
 }

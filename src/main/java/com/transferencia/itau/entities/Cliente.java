@@ -1,9 +1,12 @@
 package com.transferencia.itau.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,4 +27,8 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long  numeroConta;
     private Long saldo;
+
+    @OneToMany(cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties({"cliente"})
+    private List<Transferencia> transferencias = new ArrayList<>();
 }
