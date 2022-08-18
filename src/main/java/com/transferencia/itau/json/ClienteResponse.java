@@ -12,6 +12,6 @@ public class ClienteResponse {
 
     private Long id;
     private String nome;
-    private Long numeroConta;
+    private double numeroConta;
     private Long saldo;
 }
