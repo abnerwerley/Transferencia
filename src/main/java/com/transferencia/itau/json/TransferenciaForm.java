@@ -2,7 +2,7 @@ package com.transferencia.itau.json;
 
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Getter
@@ -12,11 +12,10 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class TransferenciaForm {
 
-    private Long numeroContaTransferidor;
-    @NotBlank
-    private Long saldoTransferidor;
-    @NotBlank
-    private Long numeroContaRecebidor;
-    @NotBlank
-    private Long saldoRecebidor;
+    @NotEmpty
+    private Long numeroContaOrigem;
+    @NotEmpty
+    private Long valorTransferencia;
+    @NotEmpty
+    private Long numeroContaDestinatario;
 }

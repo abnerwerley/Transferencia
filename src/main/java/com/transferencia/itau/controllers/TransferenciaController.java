@@ -1,5 +1,6 @@
 package com.transferencia.itau.controllers;
 
+import com.transferencia.itau.json.TransferenciaForm;
 import com.transferencia.itau.json.TransferenciaResponse;
 import com.transferencia.itau.services.TransferenciaService;
 import lombok.AllArgsConstructor;
@@ -20,9 +21,14 @@ public class TransferenciaController {
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("")
     Page<TransferenciaResponse> findTransferencias(@RequestParam(required = false, defaultValue = "0") Integer pageNumber,
-                                                   @RequestParam(required = false, defaultValue = "10") Integer pageSize){
+                                                   @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return service.findAllTransferencias(PageRequest.of(pageNumber, pageSize));
     }
 
+    @ResponseStatus(value = HttpStatus.OK)
+    @PostMapping("")
+    TransferenciaResponse transferir(@RequestBody TransferenciaForm form) {
+        return service.transferir(form);
+    }
 
 }

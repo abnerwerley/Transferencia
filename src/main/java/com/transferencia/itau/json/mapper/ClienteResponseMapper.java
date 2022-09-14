@@ -14,7 +14,7 @@ public class ClienteResponseMapper {
                 .nome(cliente.getNome())
                 .numeroConta(cliente.getNumeroConta())
                 .saldo(cliente.getSaldo())
-                .transferencias(cliente.getTransferencias())
+                //.transferencias(cliente.getTransferencias())
                 .build();
     }
 }

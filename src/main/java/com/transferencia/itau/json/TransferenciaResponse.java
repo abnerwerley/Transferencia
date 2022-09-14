@@ -1,5 +1,6 @@
 package com.transferencia.itau.json;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.transferencia.itau.entities.Cliente;
 import lombok.*;
 
@@ -14,12 +15,13 @@ import java.time.LocalDateTime;
 public class TransferenciaResponse {
 
     private Long idTransferencia;
-    private Long numeroContaTransferidor;
-    private Long saldoTransferidor;
-    private Long numeroContaRecebidor;
-    private Long saldoRecebidor;
+    private Long numeroContaOrigem;
+    private Long saldoOrigem;
+    private Long numeroContaDestinatario;
+    private Long valorTransferencia;
+    @JsonFormat(pattern = "dd/MM/YYYY | HH:mm:ss")
     private LocalDateTime data;
     private boolean sucesso;
-    private Cliente transferidor;
-    private Cliente recebidor;
+    private Cliente clienteOrigem;
+    private Cliente destinatario;
 }

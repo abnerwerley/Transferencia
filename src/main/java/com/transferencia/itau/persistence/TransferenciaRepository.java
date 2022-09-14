@@ -6,8 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TransferenciaRepository extends JpaRepository<Transferencia, Long> {
-
-    Transferencia findByIdTransferencia(Long idTransferencia);
-
-    Transferencia findByNumeroContaTransferidor(Long numeroContaTransferidor);
 }

@@ -1,10 +1,10 @@
 package com.transferencia.itau.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,27 +20,21 @@ public class Transferencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTransferencia;
-    @NotBlank
-    private Long numeroContaTransferidor;
-    @NotBlank
-    private Long saldoTransferidor;
-    @NotBlank
-    private Long numeroContaRecebidor;
-    @NotBlank
-    private Long saldoRecebidor;
-    @NotBlank
+    private Long numeroContaOrigem;
+    private Long saldoOrigem;
+    private Long valorTransferencia;
+    private Long numeroContaDestinatario;
+
+    @JsonFormat(pattern = "dd/MM/YYYY | HH:mm:ss")
     private LocalDateTime data;
-    @NotBlank
     private boolean sucesso;
 
-    @NotBlank
     @ManyToOne
     @JsonIgnoreProperties({"transferencias"})
-    private Cliente transferidor;
+    private Cliente contaOrigem;
 
-    @NotBlank
     @ManyToOne
     @JsonIgnoreProperties({"transferencias"})
-    private Cliente recebidor;
+    private Cliente destinatario;
 
 }

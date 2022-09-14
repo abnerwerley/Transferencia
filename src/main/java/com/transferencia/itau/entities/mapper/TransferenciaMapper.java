@@ -10,10 +10,8 @@ public class TransferenciaMapper {
 
     public static Transferencia fromFormToEntity(TransferenciaForm form) {
         return Transferencia.builder()
-                .numeroContaRecebidor(form.getNumeroContaRecebidor())
-                .numeroContaTransferidor(form.getNumeroContaTransferidor())
-                .saldoRecebidor(form.getSaldoRecebidor())
-                .saldoTransferidor(form.getSaldoTransferidor())
+                .numeroContaDestinatario(form.getNumeroContaDestinatario())
+                .numeroContaOrigem(form.getNumeroContaOrigem())
                 .build();
     }
 }

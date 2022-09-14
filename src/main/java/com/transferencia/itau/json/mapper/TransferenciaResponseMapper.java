@@ -11,14 +11,14 @@ public class TransferenciaResponseMapper {
     public static TransferenciaResponse fromEntityToResponse(Transferencia transferencia) {
         return TransferenciaResponse.builder()
                 .idTransferencia(transferencia.getIdTransferencia())
-                .numeroContaRecebidor(transferencia.getNumeroContaRecebidor())
-                .numeroContaTransferidor(transferencia.getNumeroContaTransferidor())
-                .recebidor(transferencia.getRecebidor())
-                .transferidor(transferencia.getTransferidor())
+                .numeroContaDestinatario(transferencia.getNumeroContaDestinatario())
+                .numeroContaOrigem(transferencia.getNumeroContaOrigem())
+                .destinatario(transferencia.getDestinatario())
+                .clienteOrigem(transferencia.getContaOrigem())
                 .sucesso(transferencia.isSucesso())
                 .data(transferencia.getData())
-                .saldoRecebidor(transferencia.getSaldoRecebidor())
-                .saldoTransferidor(transferencia.getSaldoTransferidor())
+                .saldoOrigem(transferencia.getSaldoOrigem())
+                .valorTransferencia(transferencia.getValorTransferencia())
                 .build();
     }
 
